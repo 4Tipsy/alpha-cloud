@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Montserrat Black";
+  src: url("../res/montserrat/Montserrat-Black.ttf"),
+  url("../res/montserrat/Montserrat-Black.otf");
+}
+@font-face {
+  font-family: "Montserrat ExtraBold";
+  src: url("../res/montserrat/Montserrat-ExtraBold.ttf"),
+  url("../res/montserrat/Montserrat-ExtraBold.otf");
+}
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url("../res/montserrat/Montserrat-Bold.ttf"),
+  url("../res/montserrat/Montserrat-Bold.otf");
+}
+@font-face {
+  font-family: "Montserrat SemiBold";
+  src: url("../res/montserrat/Montserrat-SemiBold.ttf"),
+  url("../res/montserrat/Montserrat-SemiBold.otf");
+}
+@font-face {
+  font-family: "Montserrat Medium";
+  src: url("../res/montserrat/Montserrat-Medium.ttf"),
+  url("../res/montserrat/Montserrat-Medium.otf");
+}
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url("../res/montserrat/Montserrat-Regular.ttf"),
+  url("../res/montserrat/Montserrat-Regular.otf");
+}
+@font-face {
+  font-family: "Montserrat Light";
+  src: url("../res/montserrat/Montserrat-Light.ttf"),
+  url("../res/montserrat/Montserrat-Light.otf");
+}
+@font-face {
+  font-family: "Montserrat ExtraLight";
+  src: url("../res/montserrat/Montserrat-ExtraLight.ttf"),
+  url("../res/montserrat/Montserrat-ExtraLight.otf");
+}
+@font-face {
+  font-family: "Montserrat Thin";
+  src: url("../res/montserrat/Montserrat-Thin.ttf"),
+  url("../res/montserrat/Montserrat-Thin.otf");
+}
+@font-face {
+  font-family: "Quicksand Bold";
+  src: url("../res/Quicksand-Bold.otf")
+}

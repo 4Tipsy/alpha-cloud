@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normilize.css">
+  <link rel="stylesheet" href="css/font-kit.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>AlphaCloud</title>
+</head>
+<body>
+  <div class="first-screen">
+
+    <header style="height: 50px;">
+      <div class="header-inner">
+
+        <div class="logo-container">
+          <span class="logo-ico-wrapper"><div class="logo-ico"
+            style="background-image: url('./res/icons/cloud.svg');"></div></span>
+          <span> AlphaCloud</span>
+        </div>
+
+        <div class="personal-account-container">
+          <span class="personal-account-ico-wrapper"><div class="personal-account-ico"></div></span>
+          <span> account</span>
+        </div>
+
+      </div>
+    </header>
+
+    <div class="clouds"><!-- offer is absolute from clouds lol -->
+      <div class="offer">
+
+        <div class="offer__main-text">Аренда<br>выделенных <span class="underlined-text">серверов</span></div>
+
+        <div class="offer__additional-text-wrapper">
+          <div class="deco-line-1"></div>
+          <div class="deco-line-2"></div>
+          <div class="offer__additional-text">
+          Полностью настраиваемые сервера
+          на операционной системе «Linux»
+          для любых ваших задач.
+          </div>
+          <div class="deco-line-3"></div>
+        </div>
+
+        <div class="offer__main-btn">
+          <span>Выбрать сервер</span>
+        </div>
+
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="why-choose-us">
+    <div class="why-choose-us-inner">
+    <h1 style="grid-area: h1;">Почему выбирают нас</h1>
+
+      <div class="answer">
+        <div class="answer__img-wrapper">
+          <div class="answer__img"
+            style="background-image: url('./res/icons/conf.svg');">
+          </div>
+        </div>
+        <div class="answer__text-wrapper">
+          <div class="answer__test">
+            <span>Конфигуратор</span>
+            <div>Вы можете полностью настроить
+            ваш сервер под ваши нужды, 
+            выбрать необходимый CPU, объем
+            и тип ОЗУ, а также используемые диски.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="answer">
+        <div class="answer__img-wrapper">
+          <div class="answer__img"
+            style="background-image: url('./res/icons/garant.svg');">
+          </div>
+        </div>
+        <div class="answer__text-wrapper">
+          <div class="answer__test">
+            <span>Гарантия</span>
+            <div>Мы гарантируем корректную
+            работу ваших серверов в любых
+            обстоятельствах.<br>
+            Для этого у нас установлена 
+            новейшая DDoS-защита и
+            дополнительные источники
+            питания на случай сбоев 
+            в электро-сети, а также реализована 
+            система переадресации трафика.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="answer">
+        <div class="answer__img-wrapper">
+          <div class="answer__img"
+            style="background-image: url('./res/icons/resp.svg');">
+          </div>
+        </div>
+        <div class="answer__text-wrapper">
+          <div class="answer__test">
+            <span>Клиентоориенти-<br>рованность</span>
+            <div>Множество довольных покупателей,
+            а также положительных отзывов
+            и постоянных клиентов.
+            Круглосуточный центр поддержки и
+            сопровождения.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- configurator component -->
+  <div class="configurator" id="configurator"
+    x-data="{configurator: {
+
+      'CPU': undefined,
+      'RAM': undefined,
+      'drive': undefined,
+      /* type: ['name', 'price rub/m'] */
+
+      change(key, value) {
+        this[key] = value
+      },
+
+      get isPossibleToBuy() {
+        if (this.CPU === undefined || this.RAM === undefined || this.drive === undefined) {
+          return false
+        } else {
+          return true
+        }
+      },
+      get pricePerMonth() {
+        let totalPrice = 0;
+
+        [this.CPU, this.RAM, this.drive].forEach(el => {
+          if (el !== undefined) {
+            // totalPrice += price from ['name', 'price rub/m']
+            totalPrice += Number(el[1].split(' ')[0])
+          }
+        })
+
+        return totalPrice
+      },
+
+    }}"
+  >
+    <div class="configurator-inner">
+      <h1 style="grid-area: h1">Конфигуратор <span class="underlined-text">сервера</span></h1>
+      <div class="configurator__options">
+
+        <div class="configurator__option">
+          <div class="__name-wrapper">
+            <div class="__ico" style="background-image: url('./res/icons/cpu.svg')"></div><div>CPU</div>
+          </div>
+          <div class="__choose-wrapper" x-data="{chosenCpuGeneration: ''}">
+            <select class="configurator__option__select-one-option" x-model="chosenCpuGeneration">
+
+              <!-- X-FOR -->
+              <option value="" selected disabled>Generation</option>
+              <template x-for="generation in Object.keys(window.CONFIGURATOR_DATA.CPU)">
+                <option x-bind:value="generation" x-text="generation"></option>
+              </template>
+
+            </select>
+            <select x-bind:class="chosenCpuGeneration === '' ? 'configurator__option__select-one-option _inactive' 
+            : 'configurator__option__select-one-option' " 
+            @change="configurator.change('CPU', JSON.parse($el.value))">
+
+              <!-- X-FOR -->
+              <option x-show="(chosenCpuGeneration !== '' )" value="" selected disabled>Model</option>
+              <template x-if="(chosenCpuGeneration !== '' )">
+                <template x-for="model in Object.entries(window.CONFIGURATOR_DATA.CPU[chosenCpuGeneration])">
+                  <option x-bind:value="JSON.stringify(model)" x-text="model[0]"></option>
+                </template>
+              </template>
+              
+            </select>
+          </div>
+        </div>
+
+        <div class="configurator__option">
+          <div class="__name-wrapper">
+            <div class="__ico" style="background-image: url('./res/icons/ram.svg');"></div><div>RAM</div>
+          </div>
+          <div class="__choose-wrapper">
+            <select class="configurator__option__select-one-option"
+            @change="configurator.change('RAM', JSON.parse($el.value))">
+
+              <!-- X-FOR -->
+              <option value="" selected disabled>Amount</option>
+              <template x-for="amount in Object.entries(window.CONFIGURATOR_DATA.RAM)">
+                <option x-bind:value="JSON.stringify(amount)" x-text="amount[0]"></option>
+              </template>
+
+            </select>
+          </div>
+        </div>
+
+        <div class="configurator__option">
+          <div class="__name-wrapper">
+            <div class="__ico" style="background-image: url('./res/icons/drive.svg');"></div><div>Drives</div>
+          </div>
+          <div class="__choose-wrapper">
+            <select class="configurator__option__select-one-option"
+            @change="configurator.change('drive', JSON.parse($el.value))">
+
+              <!-- X-FOR -->
+              <option value="" disabled selected hidden>HDD/SSD</option>
+              <option value="" disabled>HDD</option>
+              <template x-for="model in Object.entries(window.CONFIGURATOR_DATA.drives.HDD)">
+                <option x-bind:value="JSON.stringify(model)" x-text="model[0]"></option>
+              </template>
+              <option value="" disabled>SSD</option>
+              <template x-for="model in Object.entries(window.CONFIGURATOR_DATA.drives.SSD)">
+                <option x-bind:value="JSON.stringify(model)" x-text="model[0]"></option>
+              </template>
+
+            </select>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="configurator__resulted" x-data="{period: '1'}">
+        <div class="__img"></div>
+        <div class="__price-in-month">
+          <div style="max-width: 40%;">Стоимость в месяц</div>
+          <div class="configurator__price-per-month"
+          x-text="configurator.pricePerMonth + ' руб'"></div>
+        </div>
+        <div class="__period">
+          <div>Период</div>
+          <select class="__option-choose-period" x-model="period">
+            <option value="1" selected>1 месяц</option>
+            <option value="2">2 месяца</option>
+            <option value="3">3 месяца</option>
+          </select>
+        </div>
+        <div class="__total-price">
+          <div>Итого</div>
+          <div class="underlined-text configurator__total-price"
+          x-text="configurator.pricePerMonth * period + ' руб' "></div>
+        </div>
+        <div class="configurator__buy-btn-wrapper">
+
+          <!-- BUY BTN -->
+          <template x-if="configurator.isPossibleToBuy">
+            <div class="configurator__buy-btn"
+            @click="alert('А сейчас должен был быть редерикт на страничку оплаты и все такое,' +
+            'но этот сайт всего лишь пэт-проект и ничего не продает=)')">
+              <span>Заказать</span>
+            </div>
+          </template>
+          <template x-if="!configurator.isPossibleToBuy">
+            <div class="configurator__buy-btn _inactive">
+              <span>Заполните все поля</span>
+            </div>
+          </template>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /configurator component -->
+
+
+  <div class="ready-configurations">
+    <div class="ready-configurations-inner">
+      <h1 style="color: black;">Готовые конфигурации <span class="underlined-text">серверов</span></h1>
+      <div class="ready-configurations__list">
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="last-block">
+    <div class="last-block-inner">
+      <div class="last-block__img"></div>
+      <div class="last-block__text">
+        <div class="__title">Стабильность и клиентоориентированность -
+          <br>наш приоритет!</div>
+        <div class="__text">Наши клиенты - IT-стартапы, а также
+          небольшие компании.<br>
+          Поэтому наша тех. поддержка
+          работает круглосуточно!<br>
+          Мы предоставляем вам надёжных специалистов,
+          которые сами настроят
+          всё необходимое ПО на сервере
+          и будут сопровождать его дальнейшую 
+          эксплуатацию на протяжении всего 
+          периода аренды.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="footer-inner">
+      <div class="logo-container" style="border-bottom: 3px solid #fff;">
+        <span class="logo-ico-wrapper"><div class="logo-ico"
+           style="background-image: url('./res/icons/cloud-white.svg');"></div></span>
+        <span style="color: #fff;"> AlphaCloud</span>
+      </div>
+  
+      <div class="go-to-top"></div>
+  
+      <div class="tech-support-btn"></div>
+    </div>
+  </footer>
+
+  <!-- Alpine.js -->
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script>console.log('Powered by Alpine.js')</script>
+
+  <!-- configs -->
+  <script src="configs/configurator.js"></script>
+
+</body>
+</html>
