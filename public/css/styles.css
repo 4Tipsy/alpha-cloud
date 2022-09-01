@@ -58,7 +58,7 @@ header {
   display: flex;
   align-items: center;
   font-family: "Montserrat Medium";
-  font-size: 15px;
+  font-size: 17.25px;
   cursor: pointer;
 }
 
@@ -66,11 +66,11 @@ header {
   height: 100%;
   display: flex;
   align-items: center;
-  margin-right: 0.4vw;
+  margin-right: 0.5vw;
 }
 
 .personal-account-ico {
-  height: 36px;
+  height: 27px;
   aspect-ratio: 1/1;
   background-size: contain;
   background-repeat: no-repeat;
@@ -377,6 +377,77 @@ header {
   flex-direction: column;
 }
 
+.one-ready-configuration {
+  margin: 2.5vw 0;
+}
+.one-ready-configuration .__top-section {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto auto auto 1fr auto 1fr auto 1fr auto;
+  grid-gap: 2vw;
+  font-family: "Montserrat Medium";
+  font-size: 1.8vw;
+}
+.one-ready-configuration .__bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.15vw;
+}
+.one-ready-configuration .__ico {
+  background-image: url("../res/icons/server.svg");
+  height: 3.5vw;
+  aspect-ratio: 1/1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.one-ready-configuration .cpu-name {
+  font-family: "Montserrat ExtraBold";
+  font-size: 2.3vw;
+  text-align: center;
+}
+.one-ready-configuration .__price {
+  font-family: "Montserrat Bold";
+  font-size: 2.2vw;
+}
+.one-ready-configuration .__option-choose-period {
+  margin-left: 1.8vw;
+  background-color: transparent;
+  border: 2px solid #000;
+  border-radius: 12px;
+  aspect-ratio: 208/64;
+  color: #000;
+  font-family: "Montserrat Regular";
+  font-size: 1.5vw;
+  padding: 0 1vw;
+}
+.one-ready-configuration .__option-choose-period option {
+  font-family: inherit;
+  font-size: inherit;
+  opacity: 0.7;
+  background-color: #464F5C;
+  margin: 0.2vw 0;
+}
+.one-ready-configuration .ready-conf__buy-btn {
+  background: #34445B;
+  color: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  aspect-ratio: 355/81;
+  height: 4vw;
+  font-family: "Montserrat Light";
+  font-size: 1.6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.one-ready-configuration .ready-conf__buy-btn:hover {
+  background-color: #212c3b;
+}
+
 .last-block {
   display: flex;
   justify-content: center;
@@ -422,7 +493,7 @@ header {
 
 footer {
   background-color: black;
-  height: 8vw;
+  height: max(60px, 8vw);
   display: flex;
   justify-content: center;
 }
@@ -432,4 +503,22 @@ footer {
   width: 84.66667%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.go-to-top {
+  background-image: url("../res/icons/go-to-top.svg");
+  height: 2.5vw;
+  aspect-ratio: 1/1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  margin-right: 4vw;
+}
+
+.our-contacts {
+  font-size: 15px;
+  font-family: "Montserrat Medium";
+  color: #fff;
 }

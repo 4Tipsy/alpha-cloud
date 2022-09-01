@@ -1,2 +1,4 @@
 # alpha-cloud
- simple landing made with Alpine.js
+ a simple landing made with Alpine.js
+
+ **site link:**
