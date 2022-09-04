@@ -1,4 +1,4 @@
 # alpha-cloud
- a simple landing made with Alpine.js
+It is a simple landing made with Alpine.js
 
- **site link:**
+ **site link:** https://4tipsy.github.io/alpha-cloud/public/index.html
