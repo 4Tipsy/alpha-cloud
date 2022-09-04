@@ -45,9 +45,9 @@ window.CONFIGURATOR_DATA = {
     '8Gb DDR3 ECC': '520 руб/мес',
     '16Gb DDR3 ECC': '1200 руб/мес',
     '32Gb DDR3 ECC': '2500 руб/мес',
-    '4Gb DDR3 ECC': '370 руб/мес',
-    '8Gb DDR3 ECC': '850 руб/мес',
-    '16Gb DDR3 ECC': '1850 руб/мес',
+    '4Gb DDR4': '370 руб/мес',
+    '8Gb DDR4': '850 руб/мес',
+    '16Gb DDR4': '1850 руб/мес',
   },
 
   'drives': {
@@ -57,6 +57,7 @@ window.CONFIGURATOR_DATA = {
     }
     */
     'HDD': {
+      '2Tb HHD SATA': '625 руб/мес',
       '2Tb HHD SATA': '1150 руб/мес',
       '4Tb HDD SATA': '2300 руб/мес',
       '6Tb HDD SATA': '3400 руб/мес',
