@@ -35,7 +35,7 @@ header {
   align-items: center;
   border-bottom: 3px solid black;
   font-family: "Montserrat Bold";
-  font-size: 15px;
+  font-size: min(3vw, 22px);
 }
 
 .logo-ico-wrapper {
@@ -46,7 +46,7 @@ header {
 }
 
 .logo-ico {
-  height: 36px;
+  height: calc(min(3vw, 22px) * 1.75);
   aspect-ratio: 1/1;
   background-size: cover;
   background-repeat: no-repeat;
@@ -58,7 +58,7 @@ header {
   display: flex;
   align-items: center;
   font-family: "Montserrat Medium";
-  font-size: 17.25px;
+  font-size: calc(min(3vw, 22px) * 1.15);
   cursor: pointer;
 }
 
@@ -70,7 +70,7 @@ header {
 }
 
 .personal-account-ico {
-  height: 27px;
+  height: calc(min(3vw, 22px) * 1.8);
   aspect-ratio: 1/1;
   background-size: contain;
   background-repeat: no-repeat;
@@ -90,6 +90,7 @@ header {
   top: 0;
   background-image: url("../res/imgs/clouds.png");
   background-position: center, center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .first-screen .offer {
@@ -170,11 +171,12 @@ header {
   justify-content: center;
   background-image: url("../res/imgs/background-img-1.jpg");
   background-position: center, center;
+  background-size: cover;
   background-repeat: no-repeat;
   position: relative;
 }
 .why-choose-us:before {
-  /* such blur is unsupported in firefox as i got it */
+  /* blur */
   content: "";
   position: absolute;
   top: 0;
@@ -453,6 +455,7 @@ header {
   justify-content: center;
   background-image: url("../res/imgs/background-img-3.jpg");
   background-position: center, center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 

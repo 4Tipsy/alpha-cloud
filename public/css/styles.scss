@@ -35,7 +35,7 @@ header {
 }
 
 /* logo */
-$ico-size: 15px; // size of the ico and pers-acc
+$header-size: min(3vw, 22px); // size of the ico and pers-acc
 .logo-container {
   display: flex;
   align-items: center;
@@ -43,7 +43,7 @@ $ico-size: 15px; // size of the ico and pers-acc
   border-bottom: 3px solid black;
 
   font-family: "Montserrat Bold";
-  font-size: $ico-size;
+  font-size: $header-size;
 }
 .logo-ico-wrapper {
   height: 100%;
@@ -53,7 +53,7 @@ $ico-size: 15px; // size of the ico and pers-acc
   margin-right: 0.4vw;
 }
 .logo-ico {
-  height: calc($ico-size * 2.4); // size of the ico
+  height: calc($header-size * 1.75); // size of the ico
 
   aspect-ratio: 1 / 1;
 
@@ -68,7 +68,7 @@ $ico-size: 15px; // size of the ico and pers-acc
   align-items: center;
 
   font-family: "Montserrat Medium";
-  font-size: calc($ico-size * 1.15);
+  font-size: calc($header-size * 1.15);
 
   cursor: pointer;
 }
@@ -81,7 +81,7 @@ $ico-size: 15px; // size of the ico and pers-acc
   margin-right: 0.5vw;
 }
 .personal-account-ico {
-  height: calc($ico-size * 1.8); // size of the ico
+  height: calc($header-size * 1.8); // size of the ico
 
   aspect-ratio: 1 / 1;
 
@@ -107,6 +107,7 @@ $ico-size: 15px; // size of the ico and pers-acc
 
     background-image: url("../res/imgs/clouds.png");
     background-position: center, center;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 
@@ -211,12 +212,13 @@ $ico-size: 15px; // size of the ico and pers-acc
 
   background-image: url("../res/imgs/background-img-1.jpg");
   background-position: center, center;
+  background-size: cover;
   background-repeat: no-repeat;
 
   position: relative;
   
   &:before {
-    /* such blur is unsupported in firefox as i got it */
+    /* blur */
     content: "";
     position: absolute;
     top: 0;
@@ -570,6 +572,7 @@ $ico-size: 15px; // size of the ico and pers-acc
 
   background-image: url("../res/imgs/background-img-3.jpg");
   background-position: center, center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .last-block-inner {
